@@ -1,0 +1,2 @@
+For more details on random functions, visit the Go random package page
+at: http:/​/​golang.​org.

@@ -1,0 +1,6 @@
+If you observe the code, we used /usr/local/go/bin/go as the Go
+executable location because it is the Go compiler location in Mac OS X.
+While executing exec.Command, you should give the absolute path of the
+executable. So, if you are working on an Ubuntu machine or Windows,
+use the path to your installed Go executable. On Linux machines, you can
+easily find that out by using the $ which go command.
