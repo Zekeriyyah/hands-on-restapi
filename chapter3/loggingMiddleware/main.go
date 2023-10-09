@@ -17,8 +17,14 @@ func handle(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
 	r := mux.NewRouter()
 	r.HandleFunc("/", handle)
 	loggedRouter := handlers.LoggingHandler(os.Stdout, r)
 	http.ListenAndServe(":8000", loggedRouter)
+	/*** Other useful middlewares in gorilla/handlers includes
+	1. CompressionHandler- for zipping the responses
+	2. RecoveryHandler- for recovering from unexpected panics
+	**/
+
 }
