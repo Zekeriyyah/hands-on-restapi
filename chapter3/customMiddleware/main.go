@@ -20,7 +20,6 @@ func handle(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	originalHandler := http.HandlerFunc(handle)
-
 	http.Handle("/", middleware(originalHandler))
 
 	http.ListenAndServe(":8000", nil)
