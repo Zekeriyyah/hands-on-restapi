@@ -8,7 +8,7 @@ import (
 	"github.com/emicklei/go-restful"
 )
 
-func ParseID(response *restful.Response, id string) {
+func ParseID(response *restful.Response, id string) error {
 	//Validating the Id in url to avoid sql injection
 
 	_, parseErr := strconv.ParseInt(id, 0, 0)
@@ -16,6 +16,7 @@ func ParseID(response *restful.Response, id string) {
 		log.Println("Invalid ID!: ", parseErr)
 		response.AddHeader("Content-Type", "text/plain")
 		response.WriteErrorString(http.StatusBadRequest, "Invalid ID")
-		return
+		return parseErr
 	}
+	return nil
 }
